@@ -490,9 +490,6 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: all .3s; }
-  .popup:target {
-    opacity: 1;
-    visibility: visible; }
   .popup__content {
     position: absolute;
     top: 50%;
@@ -504,7 +501,10 @@ body {
     box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     overflow: hidden;
-    display: table; }
+    display: table;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all .5s .2s; }
   .popup__left {
     width: 33.3333333%;
     display: table-cell; }
@@ -523,6 +523,24 @@ body {
     column-gap: 4rem;
     column-rule: 1px solid #eee;
     hyphens: auto; }
+  .popup:target {
+    opacity: 1;
+    visibility: visible; }
+  .popup:target .popup__content {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1); }
+  .popup__close:link, .popup__closevisited {
+    color: #777;
+    position: absolute;
+    top: 2.5rem;
+    right: 2.5rem;
+    font-size: 3rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: all .2s;
+    line-height: 1; }
+  .popup__close:hover {
+    color: #27EF9F; }
 
 .header {
   height: 95vh;
